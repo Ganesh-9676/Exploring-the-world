@@ -1,71 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-
-/*
-* Heading
-*   -logo
-*   -Nav items
-* Body
-*   -Search
-*   -RestaurentContainer
-*       -RestaurentCard
-*       -Img
-*       -Name of Res, Star rating, cuisine, delivery time 
-* Footer
-*   -Copyright
-*   -Links
-*   -Address
-*   -Contact
-*/
-
-
-const Header = () => {
-    return (
-        <div className="header">
-            <div className="logo-container">
-                <img className="logo" src="https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png?nwm=1&nws=1&industry=restaurant-food&sf=&txt_keyword=All"/>
-            </div>
-            <div className="nav-items">
-                <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
-                    <li>Cart</li>
-                </ul>
-            </div>
-        </div>
-    )
-}
-
-const RestaurentCard = (props) => {
-    const {resData} = props;
-
-    const {
-        cloudinaryImageId,
-        name,
-        avgRating,
-        cuisines,
-        costForTwo,
-        deliveryTime
-    } = resData?.data;
-
-    return (
-        <div className="res-card" style={{backgroundColor: '#f0f0f0'}}>
-            <img 
-                className="res-logo"
-                alt= "res-logo" 
-                src={ resData.data.cloudinaryImageId }
-            />
-            <h3>{name}</h3>
-            <h4>{cuisines.join(", ")}</h4>
-            <h4>{avgRating} stars</h4>
-            <h4>${costForTwo / 100} FOR TWO</h4>
-            <h4>{deliveryTime} minutes</h4>
-        </div>
-    );
-};
-
 const resList = [{
     type: "restaurant",
     data: {
@@ -433,7 +365,7 @@ const resList = [{
     type: "restaurant",
     data: {
         type: "F",
-        id: "334475",
+        id: "334479",
         name: "KFC",
         uuid: "eaed0e3b-7c0e-4367-8f59-f41d309fb93a",
         city: "1",
@@ -554,7 +486,7 @@ const resList = [{
     type: "restaurant",
     data: {
         type: "F",
-        id: "334476",
+        id: "334471",
         name: "Healthy Bites",
         uuid: "eaed0e3b-7c0e-4367-8f59-f41d309fb93a",
         city: "1",
@@ -675,7 +607,7 @@ const resList = [{
     type: "restaurant",
     data: {
         type: "F",
-        id: "334478",
+        id: "334472",
         name: "Maghana Hotel",
         uuid: "eaed0e3b-7c0e-4367-8f59-f41d309fb93a",
         city: "1",
@@ -796,7 +728,7 @@ const resList = [{
     type: "restaurant",
     data: {
         type: "F",
-        id: "334478",
+        id: "334470",
         name: "Maghana Hotel",
         uuid: "eaed0e3b-7c0e-4367-8f59-f41d309fb93a",
         city: "1",
@@ -915,31 +847,4 @@ const resList = [{
     subtype: false,
 } ]
 
-const Body = () => {
-    return (
-        <div className="body">
-            <div className="search">Search</div>
-            <div className="res-container">
-                {
-                    resList.map((restaurent) => (
-                        <RestaurentCard key = {restaurent.data.id} resData = {restaurent}/>
-                    ))
-                }
-            </div>
-        </div>
-    )
-}
-
-
-const AppLayout = () => {
-    return (
-        <div className="app">
-            <Header/>
-            <Body/>
-        </div>
-    )
-}
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<AppLayout/>);
+export default resList;
